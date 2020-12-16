@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export default function FriendCard(props) {
 
-    const { details } = props;
+    const { details, member } = props;
 
     if (!details) { 
         return <h3>Fetching the Friend details</h3>
@@ -15,6 +15,7 @@ export default function FriendCard(props) {
         <h2>{details.name}</h2>
         <h3>{details.email}</h3>
         <h3>{details.role}</h3>
+        <button onClick={member}>Edit</button>
     </FriendCardStyle>
 
     );

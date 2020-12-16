@@ -1,8 +1,9 @@
 import React from "react";
+import styled from 'styled-components';
 
 export default function Form(props) {
 
-    const { formValues, change, submit } = props;
+    const { formValues, change, submit, member } = props;
 
   return (
     <div>
@@ -12,7 +13,7 @@ export default function Form(props) {
         <form onSubmit={submit}>
             <label>
             Name:
-            <input
+            <StyledInput
             type='text' 
             name='fname' 
             value={formValues.fname}
@@ -21,7 +22,7 @@ export default function Form(props) {
             </label>
             <label>
             Email:
-            <input 
+            <StyledInput 
             type='email'
             name='email' 
             value={formValues.email}
@@ -30,18 +31,30 @@ export default function Form(props) {
             </label>
             <label>
             Role:
-            <input 
+            <StyledInput 
             type='text'
             name='role' 
             value={formValues.role}
             onChange={change}
             />
             </label>
-            <div className='friendSubmit'>
+            <StyledButton className='friendSubmit'>
             <button>Submit</button>
-            </div>
+            </StyledButton>
         </form>
     <h4> Name: {formValues.fname} Email: {formValues.email} Role: {formValues.role}</h4>
   </div>
   );
     }
+
+const StyledInput = styled.input`
+  font-size: 14px;
+  padding: 3px 4px;
+  border-width: 1px;
+  border-style: double;
+  margin: 0;
+`
+const StyledButton = styled.div`
+  padding: 2%;
+`
+

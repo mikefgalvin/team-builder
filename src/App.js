@@ -54,20 +54,20 @@ function App() {
     axios.get("fakeapi.com").then((res) => setFriends(res.data));
   }, []);
 
-  // setFriends([newFriend, ...friends]);
-  // setFormValues(defaultFormValue);
-
-// };
+  const memberToEdit = () => {
+    
+    setFormValues(friends)
+  }
 
 
 
   return (
     <div className="App">
-      <FriendForm formValues={formValues} change={onInputChange} submit={SubmitFriendForm} />
+      <FriendForm formValues={formValues} change={onInputChange} submit={SubmitFriendForm} member={memberToEdit} />
       <div>
         <h2>Team</h2>
         {friends.map((friend) => {
-        return <FriendCard key={friend.id} details={friend} />;
+        return <FriendCard key={friend.id} details={friend} member={memberToEdit} />;
       })}
       </div>
 
